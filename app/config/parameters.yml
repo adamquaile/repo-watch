@@ -1,0 +1,21 @@
+parameters:
+    mandrill_api_key: 1234
+
+    repos:
+        json-object-mapper:
+            name: "json-object-mapper"
+            url: git@github.com:adamquaile/json-object-mapper.git
+
+    tasks:
+
+        changelog:
+            on: push
+            matching:
+                repo: json-object-mapper
+                branch: master
+            actions:
+                changelog_email:
+                    sender: mandrill
+                    users:
+                        - { name: "Adam Quaile", email: "adam@eventpad.com" }
+

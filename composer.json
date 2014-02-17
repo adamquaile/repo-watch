@@ -3,7 +3,12 @@
     "description": "Configurable notifications for team-members about repository events",
     "require": {
         "mandrill/mandrill": "*",
-        "silex/silex": "*"
+        "silex/silex": "*",
+        "symfony/event-dispatcher": "*",
+        "symfony/yaml": "*"
+    },
+    "autoload": {
+        "psr-0": {"AdamQuaile": "src/" }
     },
     "authors": [
         {
