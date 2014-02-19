@@ -15,4 +15,5 @@ interface FilterInterface
      * @return boolean
      */
     public function match(BaseEvent $event);
+
 }

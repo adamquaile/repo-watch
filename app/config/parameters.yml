@@ -15,7 +15,5 @@ parameters:
                 branch: master
             actions:
                 changelog_email:
-                    sender: mandrill
                     users:
                         - { name: "Adam Quaile", email: "adam@eventpad.com" }
-

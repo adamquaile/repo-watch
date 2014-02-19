@@ -3,6 +3,7 @@
 namespace AdamQuaile\RepoWatch\Tasks;
 
 use AdamQuaile\RepoWatch\Events\Filters\FilterInterface;
+use AdamQuaile\RepoWatch\Actions\ActionInterface;
 
 class Task
 {
@@ -15,6 +16,11 @@ class Task
      * @var FilterInterface[]
      */
     private $filters;
+
+    /**
+     * @var ActionInterface[]
+     */
+    private $actions;
 
     public function addFilter(FilterInterface $filter)
     {
@@ -36,5 +42,27 @@ class Task
     {
         return $this->name;
     }
+
+    /**
+     * @return \AdamQuaile\RepoWatch\Events\Filters\FilterInterface[]
+     */
+    public function getFilters()
+    {
+        return $this->filters;
+    }
+
+    /**
+     * @return \AdamQuaile\RepoWatch\Actions\ActionInterface[]
+     */
+    public function getActions()
+    {
+        return $this->actions;
+    }
+
+    public function addAction(ActionInterface $action)
+    {
+        $this->actions[] = $action;
+    }
+
 
 }

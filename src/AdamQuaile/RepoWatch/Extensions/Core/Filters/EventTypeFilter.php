@@ -1,8 +1,9 @@
 <?php
 
-namespace AdamQuaile\RepoWatch\Events\Filters;
+namespace AdamQuaile\RepoWatch\Extensions\Core\Filters;
 
 use AdamQuaile\RepoWatch\Events\BaseEvent;
+use AdamQuaile\RepoWatch\Events\Filters\FilterInterface;
 
 class EventTypeFilter implements FilterInterface
 {
