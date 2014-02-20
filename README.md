@@ -1,7 +1,18 @@
-
 # Watch repositories for events, and trigger some actions
 
-Can detect push events via Github service hooks, cronjob checking, etc..
+Split into 2 parts, one to recognise various repository events, like:
+ - a tag being created
+ - new commits being pushed
 
-Triggers events, i.e. emailing a changelog to your team, updating build status, etc..
+from various sources such as:
+
+ - events via Github service hooks
+ - cronjob checking
+ - etc..
+
+And another part to perform actions based on those events, such as
+
+ - emailing a changelog to your team
+ - updating build status
+ - etc..
 
