@@ -1,6 +1,9 @@
-# Watch repositories for events, and trigger some actions
+# repo-watch
+
+** Configurable actions and notifications of repository events **
 
 Split into 2 parts, one to recognise various repository events, like:
+
  - a tag being created
  - new commits being pushed
 
