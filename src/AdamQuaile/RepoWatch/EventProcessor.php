@@ -2,6 +2,7 @@
 
 namespace AdamQuaile\RepoWatch;
 
+use AdamQuaile\RepoWatch\Actions\EventAwareActionInterface;
 use AdamQuaile\RepoWatch\Events\BaseEvent;
 
 class EventProcessor
@@ -44,8 +45,11 @@ class EventProcessor
                 }
             }
 
-            if ($matched) {
-                var_dump($task);
+            foreach ($task->getActions() as $action) {
+                if ($action instanceof EventAwareActionInterface) {
+                    $action->setEvent($event);
+                }
+                $action->doAction();
             }
 
 

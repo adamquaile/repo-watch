@@ -6,6 +6,8 @@ use AdamQuaile\RepoWatch\Extensions\Core\CoreExtension;
 use AdamQuaile\RepoWatch\Extensions\ExtensionInterface;
 use AdamQuaile\RepoWatch\Objects\GitRepo;
 use AdamQuaile\RepoWatch\Tasks\Task;
+use AdamQuaile\RepoWatch\Users\Group;
+use AdamQuaile\RepoWatch\Users\User;
 use Symfony\Component\Yaml\Yaml;
 use AdamQuaile\RepoWatch\Events\Filters\FilterInterface;
 use AdamQuaile\RepoWatch\Actions\ActionInterface;
@@ -122,6 +124,21 @@ class Configuration
         $this->actions[$name] = $action;
     }
 
+    public function parseGroup($keyOrArray)
+    {
+        $group = new Group();
+
+        if (is_array($keyOrArray)) {
+            foreach ($keyOrArray as $userDetails) {
+                $user = new User();
+                $user->setEmail($userDetails['email']);
+                $user->setName($userDetails['name']);
+                $group->addUser($user);
+            }
+        }
+
+        return $group;
+    }
 
 
     public function registerExtension(ExtensionInterface $extension)

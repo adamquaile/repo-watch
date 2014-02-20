@@ -14,7 +14,7 @@ class Group
      */
     public function addUser(User $user)
     {
-        $this->users = $user;
+        $this->users[] = $user;
     }
 
     /**

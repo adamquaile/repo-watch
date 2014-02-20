@@ -27,7 +27,7 @@ class BranchFilter implements ConfigurableFilterInterface
      * @throws \InvalidArgumentException
      * @return boolean
      */
-    public function match(BaseEvent $event)
+    public function match($event)
     {
         if (!($event instanceof BranchBasedEventInterface)) {
             throw new \InvalidArgumentException('Invalid event type');
@@ -45,6 +45,11 @@ class BranchFilter implements ConfigurableFilterInterface
     public static function fromConfig($config)
     {
         return new BranchFilter($config);
+    }
+
+    public function supportsEventType(BaseEvent $event)
+    {
+        return $event instanceof BaseEvent;
     }
 
 

@@ -4,8 +4,9 @@ namespace AdamQuaile\RepoWatch\Extensions\Core\Filters;
 
 use AdamQuaile\RepoWatch\Events\BaseEvent;
 use AdamQuaile\RepoWatch\Events\Filters\FilterInterface;
+use AdamQuaile\RepoWatch\Events\TagEvent;
 
-class EventTypeFilter implements FilterInterface
+class TagFilter implements FilterInterface
 {
     /**
      * @var string
@@ -21,18 +22,18 @@ class EventTypeFilter implements FilterInterface
      * Returns TRUE if and only if the event matches this filter. Returns
      * false otherwise
      *
-     * @param BaseEvent $event
+     * @param TagEvent $event
      *
      * @return boolean
      */
     public function match($event)
     {
-        return $event->getType() == $this->expected;
+        return preg_match($this->expected, $event->getTag());
     }
 
     public function supportsEventType(BaseEvent $event)
     {
-        return true;
+        return $event instanceof TagEvent;
     }
 
 
