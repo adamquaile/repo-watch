@@ -1,6 +1,6 @@
 # repo-watch
 
-** Configurable actions and notifications of repository events **
+**Configurable actions and notifications of repository events**
 
 Split into 2 parts, one to recognise various repository events, like:
 
